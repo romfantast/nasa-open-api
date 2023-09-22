@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", ready);
 function ready() {
   readyProgram();
 }
-
+// <title>NASA OPEN APIs</title>
+// <link rel="stylesheet" href="style.css">
+// <link rel="icon" type="image/x-icon" href="assets/favicon.png"></link>
 const NASA_API_KEY = "cWZHXoFsUDSrWhxPt0IGWLmNG5ogkuxjR5ytwZSc";
 
 const readyProgram = () => {
