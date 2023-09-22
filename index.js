@@ -40,9 +40,7 @@ const chooseDate = () => {
 const getNasaData = async (date) => {
   try {
     const { data } = await axios.get(
-      "https://api.nasa.gov/planetary/apod?api_key=" +
-        NASA_API_KEY +
-        `&date=${date}`
+      `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&date=${date}`
     );
     printResponse(data);
   } catch (error) {
@@ -72,9 +70,13 @@ const printResponse = (data = defaultData) => {
 };
 
 function lazyLoadImg() {
+  const img = $("[data-img]");
+  img.removeClass("show");
+
   const placeholder = $(".placeholder-my");
   placeholder.addClass("look");
-  $("[data-img]").on("load", function () {
+
+  img.on("load", function () {
     placeholder.removeClass("look");
     $(this).addClass("show");
   });
