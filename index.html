@@ -22,7 +22,57 @@
 </head>
 
 <body data-bs-theme="dark" class="container-fluid py-4">
-	<section>
+	<!-- navbar with right sidebar -->
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid p-0">
+			<a class="navbar-brand" href="./index.html"><img src="assets/logo.png" width="24" height="24" alt=""> &nbsp; {
+				NASA
+				APIs }</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+				aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+				aria-labelledby="offcanvasDarkNavbarLabel">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+						aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">APOD</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Earth</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								Dropdown
+							</a>
+							<ul class="dropdown-menu dropdown-menu-dark">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a class="dropdown-item" href="#">Something else here</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="d-flex mt-3" role="search">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- end navbar with right sidebar -->
+
+	<section class="mt-4">
 		<div class="form-group mb-4">
 			<div class="datepicker date input-group">
 				<input data-input-date type="text" placeholder="Choose Date" class="form-control" id="fecha1">
@@ -35,47 +85,72 @@
 	<section>
 		<article>
 			<h2 class="data-copyright" data-copyright></h2>
-			<p class="data-date" data-date>
-
+			<p>
+				<small class="data-date" data-date></small>
 			</p>
-			<p class="data-title" data-title></p>
-			<p class="data-explanation" data-explanation>
+			</p>
+			<div class="accordion mb-2" id="accordionPanelsStayOpenExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse"
+							data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+							aria-controls="panelsStayOpen-collapseOne" data-title>
+						</button>
+					</h2>
+					<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+						<div class="accordion-body">
+							<strong>This is the first item's accordion body.</strong><span data-explanation></span>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="placeholder-glow overflow-auto rounded-2 placeholder-my  hide">
+				<span class="placeholder col-12 h-100"></span>
 			</p>
 			<p>
-				<img loading="lazy" class="img-fluid rounded" data-img src="" alt="">
+				<img loading="lazy" class="img-fluid rounded-2 hidden" data-img src="" alt="">
 			</p>
 			<p>
 				<!-- <video class="data-video" data-video src="assets//video.mp4" type="video/mp4"></video> -->
 			</p>
 		</article>
 	</section>
+
+
+	<!-- modal date error -->
 	<section>
 		<div class="modal" tabindex="-1" id="myModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title">Date error</h5>
-						<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-target="#my-modal"
+							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<p id="myModalText"></p>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">I understand</button>
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-target="#my-modal"
+							aria-label="Close">I understand</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
+
+	<!-- Jquery -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+	<!-- latest bootstrap -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- datepicker bootstrap -->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<!-- axios -->
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="index.js"></script>
 </body>
